@@ -2,20 +2,21 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useEffect,useState } from 'react';
 import VideoCard from './VideoCard';
+
 import { useQuery } from '@tanstack/react-query';
+import { search } from '../api/youtube';
+import FakeYoutube from '../api/fakeYoutube';
 export default function Videos() {
     const {keywords} = useParams();
     //console.log(keywords);
     const [jsonData, setJsonData] = useState([]);
     const {isLoading, error, data:videos} = useQuery({
       queryKey:['videos',keywords],
-      queryFn : async()=>{
-        return fetch(`/videos/${keywords ? 'trend' : 'keyword'}.json`)
-        .then(res=>res.json())
-        .then(data=>data.items);
-
-      }
+      queryFn : ()=>{
+        const youtube = new FakeYoutube();
+        return youtube.search(keywords);
     }
+  }
     )
   
 
