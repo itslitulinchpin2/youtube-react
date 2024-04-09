@@ -15,7 +15,7 @@ export default function RelatedVideos({id}) {
     {error && <p>Error!! Something is Wrong</p>}
      {videos && 
      <ul >
-       {videos.map(video=><VideoCard key={video.id} video={video}/>)}
+       {videos.map(video=><VideoCard type='list' key={video.id} video={video}/>)}
        </ul>}
        </section>
   )
