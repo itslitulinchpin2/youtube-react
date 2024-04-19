@@ -16,7 +16,7 @@ export default function RelatedVideos({id}) {
      {videos && 
      <ul >
        {videos.map(video=><VideoCard type='list' key={video.id} video={video}/>)}
-       </ul>}
+     </ul>}
        </section>
   )
 }
