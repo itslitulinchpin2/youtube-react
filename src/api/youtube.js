@@ -4,6 +4,7 @@ export default class Youtube {
     }
   
     async search(keyword) {
+      console.log('main search');
       return keyword ? this.#searchByKeyword(keyword) : this.#mostPopular();
     }
 
@@ -15,6 +16,7 @@ export default class Youtube {
 
   
     async #searchByKeyword(keyword) {
+      console.log('final search');
       return this.apiClient
         .search({
           params: {
